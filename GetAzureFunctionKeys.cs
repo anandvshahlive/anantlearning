@@ -33,9 +33,9 @@ namespace AzFunction
             var credentials = new AzureCredentials(new ServicePrincipalLoginInformation { ClientId = clientId, ClientSecret = secret }, tenantId, AzureEnvironment.AzureGlobalCloud);
 
             var azure = Azure
-            .Configure()
-            .Authenticate(credentials)
-            .WithDefaultSubscription();
+                .Configure()
+                .Authenticate(credentials)
+                .WithDefaultSubscription();
 
             var webFunctionApp = azure.AppServices.FunctionApps.GetByResourceGroup(resourceGroup, functionAppName);
             var ftpUsername = webFunctionApp.GetPublishingProfile().FtpUsername;
